@@ -8,7 +8,7 @@ Starter Application is a Ruby on Rails 5.1.1 template to use as a base for your 
   - ???
   - Profit!
 
-The starter application was developed using Rails 5.1.1, and Ruby 2.4.1. I make no guarantees, however I'm sure it can be adapted for use on other versions of Rails and Ruby. It is set up to use [CircleCI](https://circleci.com) with automatic deployment to [Heroku](https://www.heroku.com). Code quality is measured on [Code Climate](https://codeclimate.com), with test coverage collected by the [SimpleCov](https://github.com/colszowka/simplecov) gem. Change to adapt to your own needs.
+The starter application was developed using Rails 5.1.1, and Ruby 2.4.1. I make no guarantees, however I'm sure it can be adapted for use on other versions of Rails and Ruby. It is set up to use [CircleCI](https://circleci.com) with automatic deployment to [Heroku](https://www.heroku.com). Code quality is measured on [Code Climate](https://codeclimate.com), with dependency status provided by [Gemnasium](https://gemnasium.com), and test coverage collected by the [SimpleCov](https://github.com/colszowka/simplecov) gem. Change to adapt to your own needs.
 
 ## Demo
 
