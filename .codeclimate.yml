@@ -1,0 +1,21 @@
+engines:
+  brakeman:
+    # A static analysis tool which checks Ruby on Rails applications for security vulnerabilities.
+    enabled: true
+  bundler-audit:
+    # Helps you find security vulnerabilities in your Ruby dependencies.
+    enabled: true
+  duplication:
+    # Reports issues when it finds similar code blocks over a configurable mass threshold
+    enabled: true
+    config:
+      languages:
+        - ruby:
+        - javascript:
+  reek:
+    enabled: true
+
+ratings:
+  paths:
+    - Gemfile.lock
+    - "**.rb"
