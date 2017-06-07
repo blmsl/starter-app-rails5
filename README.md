@@ -42,6 +42,7 @@ If you encounter any issues, please try to first fix it yourself, and then propo
 ## Todo's
 
 - Write more tests, particularly around pagination, account activation, password recovery, and user profile pages
+- Integrate CircleCI, Hound, and/or other CI services to inspect and comment on pull requests
 
 ## Thanks
 
