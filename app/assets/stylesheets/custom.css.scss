@@ -1,7 +1,7 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
-/* mixins, variables, etc. */
+// mixins, variables, etc.
 
 $gray-medium-light: #eaeaea;
 
@@ -130,8 +130,8 @@ aside {
     }
 
     span {
-      line-height: 1;
       display: block;
+      line-height: 1;
       margin-bottom: 3px;
     }
 
