@@ -15,7 +15,7 @@ test:
   pre:
     - ./cc-test-reporter before-build
   post:
-    - ./cc-test-reporter after-build -t simplecov --prefix /home/ubuntu/starter-app-rails5 --exit-code $EXIT_CODE
+    - ./cc-test-reporter after-build --exit-code $?
 deployment:
   staging:
     branch: master
