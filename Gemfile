@@ -39,6 +39,7 @@ end
 group :test do
   gem 'minitest-reporters',         '1.1.14'
   gem 'rails-controller-testing',   '1.0.2'
+  gem 'simplecov',                  '0.14.1'
 end
 
 # Production gems

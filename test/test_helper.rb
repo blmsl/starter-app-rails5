@@ -1,3 +1,10 @@
+# Start simplecov if testing on CirclCI
+if ENV['CIRCLE_ARTIFACTS']
+  # Initialize simplecov code coverage gem
+  require 'simplecov'
+  SimpleCov.start 'rails'
+end
+
 # Core Rails minitest initialization
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
