@@ -5,7 +5,7 @@
 
 $gray-medium-light: #eaeaea;
 $gray-border: #bbb;
-$red: #ff0000;
+$red: #f00;
 
 @mixin box-sizing {
   box-sizing: border-box;
@@ -79,14 +79,6 @@ input {
   }
 }
 
-/* .field-with-errors {
-  @extend %has-error;
-
-  .form-control {
-    color: $state-danger-text;
-  }
-} */
-
 .checkbox {
   margin-bottom: 10px;
   margin-top: -10px;
@@ -118,13 +110,13 @@ input {
 // sidebar
 
 aside {
-  section.user_info {
-    margin-top: 20px;
-  }
-
   section {
     margin-top: 20px;
     padding: 10px 0;
+
+    .user-info {
+      margin-top: 20px;
+    }
 
     &:first-child {
       border: 0;
@@ -152,7 +144,7 @@ aside {
   margin-right: 10px;
 }
 
-.gravatar_edit {
+.gravatar-edit {
   margin-top: 15px;
 }
 
