@@ -4,6 +4,8 @@
 // mixins, variables, etc.
 
 $gray-medium-light: #eaeaea;
+$gray-border: #bbb;
+$red: #ff0000;
 
 @mixin box-sizing {
   box-sizing: border-box;
@@ -59,7 +61,7 @@ textarea,
 select,
 .uneditable-input {
   @include box-sizing;
-  border: 1px solid #bbb;
+  border: 1px solid $gray-border;
   margin-bottom: 15px;
   width: 100%;
 }
@@ -68,22 +70,22 @@ input {
   height: auto;
 }
 
-#error_explanation {
-  color: red;
+.error-explanation {
+  color: $red;
 
   ul {
-    color: red;
+    color: $red;
     margin: 0 0 30px;
   }
 }
 
-.field_with_errors {
-  @extend .has-error;
+/* .field-with-errors {
+  @extend %has-error;
 
   .form-control {
     color: $state-danger-text;
   }
-}
+} */
 
 .checkbox {
   margin-bottom: 10px;
@@ -95,7 +97,7 @@ input {
   }
 }
 
-#session_remember_me {
+.session-remember-me {
   margin-left: 0;
   width: auto;
 }
