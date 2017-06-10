@@ -8,11 +8,15 @@
 
       <%= hidden_field_tag :email, @user.email %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: yield(:password_text) %>
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: yield(:password_text) %>
+      </div>
 
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: yield(:password_confirmation_text) %>
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: yield(:password_confirmation_text) %>
+      </div>
 
       <%= f.submit I18n.t("labels.reset_password_submit"), class: "btn btn-primary" %>
     <% end %>
