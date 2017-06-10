@@ -16,7 +16,7 @@ class PasswordResetsController < ApplicationController
     elsif params[:password_reset][:email].empty?
       flash.now[:danger] = "Email address can't be empty"
       render 'new'
-    elsif params[:password_reset][:email] !~ /\A[\w+\-.]+@[a-z\d\-]+(?:\.[a-z\d\-]+)*\.[a-z]+\z/i
+    elsif params[:password_reset][:email] !~ User::VALID_EMAIL_REGEX
       flash.now[:danger] = "Email address incorrectly formatted"
       render 'new'
     else
