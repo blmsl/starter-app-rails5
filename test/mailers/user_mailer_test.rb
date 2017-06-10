@@ -4,18 +4,12 @@ class UserMailerTest < ActionMailer::TestCase
 
   test "account_activation_and_password_reset_emails" do
     user = users(:test_user)
-    ['account_activation', 'password_reset'].each do |email_type|
-        if email_type == 'account_activation'
-            user.activation_token = User.new_token
-            mail = UserMailer.account_activation(user)
-            assert_equal "Account activation", mail.subject
-            assert_match user.activation_token, mail.body.encoded
-        else
-            user.reset_token = User.new_token
-            mail = UserMailer.password_reset(user)
-            assert_equal "Password reset", mail.subject
-            assert_match user.reset_token, mail.body.encoded
-        end
+    [{ type:'activation', method: 'account_activation', subject: 'Account activation' },
+     { type:'reset', method: 'password_reset', subject: 'Password reset' }].each do |emails_hash|
+        user.send("#{emails_hash[:type]}_token=", User.new_token)
+        mail = UserMailer.send("#{emails_hash[:method]}", user)
+        assert_equal "#{emails_hash[:subject]}", mail.subject
+        assert_match user.send("#{emails_hash[:type]}_token"), mail.body.encoded
         assert_equal [user.email], mail.to
         assert_equal ["noreply@example.com"], mail.from
         assert_match user.email, mail.body.encoded
