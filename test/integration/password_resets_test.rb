@@ -7,22 +7,22 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     @user = users(:test_user)
   end
 
-  test "password resets" do
+  test "getting the password resets path displays the correct template" do
     get new_password_reset_path
     assert_template 'password_resets/new'
   end
 
-  [{ test: "empty email", email: "", error_message: "Email address can't be empty" },
-   { test: "incoffrctly formatted email", email: "foo@bar", error_message: "Email address incorrectly formatted" },
-   { test: "email not found", email: "foo@bar.com", error_message: "Email address not found" }].each do |tests_hash|
-    test tests_hash[:test] do
+  [{ test: "empty", email: "", error_message: "can't be empty" },
+   { test: "incorrectly formatted", email: "foo@bar", error_message: "incorrectly formatted" },
+   { test: "not found", email: "foo@bar.com", error_message: "not found" }].each do |tests_hash|
+    test "submitting the form results in an error when the form has an email that is #{tests_hash[:test]}" do
         post password_resets_path, params: { password_reset: { email: tests_hash[:email] } }
         assert_not flash.empty?
         assert_template 'password_resets/new'
         assert_select "div.alert"
         assert_select "div.alert-danger"
         assert_select "button.close"
-        assert_select "div#flash_danger", tests_hash[:error_message]
+        assert_select "div#flash_danger", "Email address #{tests_hash[:error_message]}"
     end
   end
 
