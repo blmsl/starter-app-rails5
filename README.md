@@ -41,33 +41,12 @@ If you encounter any issues, please try to first fix it yourself, and then propo
 
 ## Todo's
 
-- Write more tests, particularly around pagination, account activation, password recovery, and user profile pages
-- Integrate CircleCI, Hound, and/or other CI services to inspect and comment on pull requests
+- Write more tests, particularly around pagination
+- Write cleaner tests, breaking up larger tests into smaller chunks if possible (e.g. [test/integration/password_rests_test.rb](https://github.com/professorNim/starter-app-rails5/blob/master/test/integration/password_resets_test.rb))
+- Integrate Hound, and/or other CI services to inspect and comment on pull requests
 
 ## Thanks
 
-Thanks to [Michael Hartl](https://github.com/mhartl) for his Rails Tutorial, a lot of this application is based on that
+Thanks to [Michael Hartl](https://github.com/mhartl) for his Rails Tutorial, a lot of this application is based on that.
 
-## License
-
-The MIT License (MIT)
-
-Copyright (c) 2016 - 2017 Steve Nims, sjnims@gmail.com
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Additional thanks goes out to the fine folks on [Stack Overflow](https://stackoverflow.com) and at the [/r/rails](https://www.reddit.com/r/rails) subreddit for their help.
