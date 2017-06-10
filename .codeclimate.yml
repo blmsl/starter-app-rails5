@@ -9,8 +9,6 @@ engines:
       languages:
         - ruby
         - javascript
-  reek:
-    enabled: true
   rubocop:
     enabled: true
   scss-lint:
