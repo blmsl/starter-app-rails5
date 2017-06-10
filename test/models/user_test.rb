@@ -19,13 +19,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  test "email validation should accept valid addresses and reject invalid addresses" do
-    addresses_hash = { valid: %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn],
-                       invalid: %w[user@example,com user_at_foo.org user.name@example. foo@bar_baz.com foo@bar+baz.com] }
-    addresses_hash.each do |validity, addresses|
-      addresses.each do |address|
+  [{ test: "email validation should accept valid addresses", addresses: %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn], validity: true },
+   { test: "email validation should reject invalid addresses", addresses: %w[user@example,com user_at_foo.org user.name@example. foo@bar_baz.com foo@bar+baz.com], validity: false }].each do |tests_hash|
+    test tests_hash[:test] do
+      tests_hash[:addresses].each do |address|
         @user.email = address
-        if validity.to_s == "valid"
+        if tests_hash[:validity]
           assert @user.valid?, "#{address.inspect} should be valid"
         else
           assert_not @user.valid?, "#{address.inspect} should be invalid"
