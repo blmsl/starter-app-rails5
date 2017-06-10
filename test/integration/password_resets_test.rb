@@ -80,6 +80,6 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     patch password_reset_path(@user.reset_token), params: { email: @user.email, user: { password: "barfoo10", password_confirmation: "barfoo10" } }
     assert_response :redirect
     follow_redirect!
-    assert_match /expired/i, response.body
+    assert response.body.include?("expired")
   end
 end
