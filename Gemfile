@@ -21,6 +21,7 @@ gem 'uglifier',     '3.2.0'
 
 # Project specific gems
 
+gem 'autoprefixer-rails',       '7.1.1'
 gem 'bcrypt',                   '3.1.11'
 gem 'bootstrap-sass',           '3.3.7'
 gem 'high_voltage',             '3.0.0'
