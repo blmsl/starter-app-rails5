@@ -10,7 +10,9 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
   test "password resets" do
     get new_password_reset_path
     assert_template 'password_resets/new'
-    # Empty Email
+  end
+
+  test "empty email" do
     post password_resets_path, params: { password_reset: { email: "" } }
     assert_not flash.empty?
     assert_template 'password_resets/new'
@@ -18,7 +20,9 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     assert_select "div.alert-danger"
     assert_select "button.close"
     assert_select "div#flash_danger", "Email address can't be empty"
-    # Incorrectly formatted email
+  end
+
+  test "incorrectly formatted email" do
     post password_resets_path, params: { password_reset: { email: "foo@bar" } }
     assert_not flash.empty?
     assert_template 'password_resets/new'
@@ -26,7 +30,9 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     assert_select "div.alert-danger"
     assert_select "button.close"
     assert_select "div#flash_danger", "Email address incorrectly formatted"
-    # Email not found
+  end
+
+  test "email not found" do
     post password_resets_path, params: { password_reset: { email: "foo@bar.com" } }
     assert_not flash.empty?
     assert_template 'password_resets/new'
@@ -34,13 +40,15 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     assert_select "div.alert-danger"
     assert_select "button.close"
     assert_select "div#flash_danger", "Email address not found"
-    # Valid email
+  end
+
+  test "valid email" do
     post password_resets_path, params: { password_reset: { email: @user.email } }
     assert_not_equal @user.reset_digest, @user.reload.reset_digest
     assert_equal 1, ActionMailer::Base.deliveries.size
     assert_not flash.empty?
     assert_redirected_to root_path
-    # Password reset form
+
     user = assigns(:user)
     # Wrong email
     get edit_password_reset_path(user.reset_token, email: "")
