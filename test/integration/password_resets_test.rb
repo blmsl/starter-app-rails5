@@ -12,34 +12,18 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     assert_template 'password_resets/new'
   end
 
-  test "empty email" do
-    post password_resets_path, params: { password_reset: { email: "" } }
-    assert_not flash.empty?
-    assert_template 'password_resets/new'
-    assert_select "div.alert"
-    assert_select "div.alert-danger"
-    assert_select "button.close"
-    assert_select "div#flash_danger", "Email address can't be empty"
-  end
-
-  test "incorrectly formatted email" do
-    post password_resets_path, params: { password_reset: { email: "foo@bar" } }
-    assert_not flash.empty?
-    assert_template 'password_resets/new'
-    assert_select "div.alert"
-    assert_select "div.alert-danger"
-    assert_select "button.close"
-    assert_select "div#flash_danger", "Email address incorrectly formatted"
-  end
-
-  test "email not found" do
-    post password_resets_path, params: { password_reset: { email: "foo@bar.com" } }
-    assert_not flash.empty?
-    assert_template 'password_resets/new'
-    assert_select "div.alert"
-    assert_select "div.alert-danger"
-    assert_select "button.close"
-    assert_select "div#flash_danger", "Email address not found"
+  [{ test: "empty email", email: "", error_message: "Email address can't be empty" },
+   { test: "incoffrctly formatted email", email: "foo@bar", error_message: "Email address incorrectly formatted" },
+   { test: "email not found", email: "foo@bar.com", error_message: "Email address not found" }].each do |tests_hash|
+    test tests_hash[:test] do
+        post password_resets_path, params: { password_reset: { email: tests_hash[:email] } }
+        assert_not flash.empty?
+        assert_template 'password_resets/new'
+        assert_select "div.alert"
+        assert_select "div.alert-danger"
+        assert_select "button.close"
+        assert_select "div#flash_danger", tests_hash[:error_message]
+    end
   end
 
   test "valid email" do
