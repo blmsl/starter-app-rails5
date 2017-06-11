@@ -502,7 +502,7 @@ Style/ClosingParenthesisIndentation:
 Style/ColonMethodCall:
   Description: 'Do not use :: for method call.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#double-colons'
-  Enabled: true
+  Enabled: false
 
 Style/CommandLiteral:
   Description: 'Use `` or %x around command literals.'
@@ -1154,3 +1154,7 @@ Style/WordArray:
   Description: 'Use %w or %W for arrays of words.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#percent-w'
   Enabled: true
+
+Style/Documentation:
+  Description: 'Checks for missing top-level documentation of classes and modules.'
+  Enabled: false
