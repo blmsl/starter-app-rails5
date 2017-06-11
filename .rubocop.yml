@@ -315,6 +315,9 @@ Performance/StringReplacement:
 
 ##################### Rails ##################################
 
+Rails:
+  Enabled: true
+
 Rails/ActionFilter:
   Description: 'Enforces consistent use of action filter methods.'
   Enabled: true
