@@ -5,9 +5,9 @@ class ApplicationHelperTest < ActionView::TestCase
     @base_title = Rails.application.config.application_name
   end
 
-  test "full title helper" do
-    ['root', 'other'].each do |test_page|
-      assert_equal full_title(test_page == 'root' ? "" : test_page.titleize), test_page == 'root' ? @base_title : "#{@base_title} | #{test_page.titleize}"
+  test 'full title helper' do
+    %w[root other].each do |test_page|
+      assert_equal full_title(test_page == 'root' ? '' : test_page.titleize), test_page == 'root' ? @base_title : "#{@base_title} | #{test_page.titleize}"
     end
   end
 end

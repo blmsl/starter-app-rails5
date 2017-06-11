@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.4.1'
-#ruby-gemset=starter_app-rails5
+# ruby-gemset=starter_app-rails5
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -9,7 +9,7 @@ end
 
 # Rails
 
-gem 'rails',  '5.1.1'
+gem 'rails', '5.1.1'
 
 # Default Rails gems
 
