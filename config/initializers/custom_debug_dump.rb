@@ -1,5 +1,4 @@
 # Override the default rails debug method to use css class debug-dump rather than debug_dump
-
 module ActionView
   module Helpers
     module DebugHelper
