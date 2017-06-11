@@ -6,8 +6,8 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   end
 
   test 'layout links while not logged in' do
-    {'root' => root_path, 'about' => page_path('about'), 'contact' => page_path('contact'), 'sitemap' => page_path('sitemap'), 'terms' => page_path('terms'),
-     'log_in' => log_in_path, 'sign_up' => sign_up_path}.each do |test_page, path|
+    { 'root' => root_path, 'about' => page_path('about'), 'contact' => page_path('contact'), 'sitemap' => page_path('sitemap'), 'terms' => page_path('terms'),
+     'log_in' => log_in_path, 'sign_up' => sign_up_path }.each do |test_page, path|
       get path
       case test_page
       when 'root'
@@ -38,8 +38,8 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   end
 
   test 'layout links while logged in' do
-    {'root' => root_path, 'about' => page_path('about'), 'contact' => page_path('contact'), 'sitemap' => page_path('sitemap'), 'terms' => page_path('terms'),
-     'users' => users_path, 'profile' => user_path(@user), 'settings' => edit_user_path(@user)}.each do |test_page, path|
+    { 'root' => root_path, 'about' => page_path('about'), 'contact' => page_path('contact'), 'sitemap' => page_path('sitemap'), 'terms' => page_path('terms'),
+     'users' => users_path, 'profile' => user_path(@user), 'settings' => edit_user_path(@user) }.each do |test_page, path|
       log_in_as(@user)
       get path
       case test_page
