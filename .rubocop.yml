@@ -485,7 +485,6 @@ Style/ClassAndModuleCamelCase:
 Style/ClassAndModuleChildren:
   Description: 'Checks style of children classes and modules.'
   Enabled: true
-  EnforcedStyle: compact
 
 Style/ClassCheck:
   Description: 'Enforces consistent use of `Object#is_a?` or `Object#kind_of?`.'
