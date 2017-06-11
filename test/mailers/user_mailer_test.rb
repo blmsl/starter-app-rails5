@@ -3,8 +3,8 @@ require 'test_helper'
 class UserMailerTest < ActionMailer::TestCase
   test 'account_activation_and_password_reset_emails' do
     user = users(:test_user)
-    [{ type:'activation', method: 'account_activation', subject: 'Account activation' },
-     { type:'reset', method: 'password_reset', subject: 'Password reset' }].each do |emails_hash|
+    [{ type: 'activation', method: 'account_activation', subject: 'Account activation' },
+     { type: 'reset', method: 'password_reset', subject: 'Password reset' }].each do |emails_hash|
       user.send("#{emails_hash[:type]}_token=", User.new_token)
       mail = UserMailer.send("#{emails_hash[:method]}", user)
       assert_equal "#{emails_hash[:subject]}", mail.subject
