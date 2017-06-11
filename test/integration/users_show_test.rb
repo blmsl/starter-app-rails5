@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class UsersShowTest < ActionDispatch::IntegrationTest
-
   def setup
     @user = users(:test_user)
     @activated_user = users(:other_user)

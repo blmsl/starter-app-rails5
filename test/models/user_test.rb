@@ -19,8 +19,8 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  [{ test: 'accept valid', addresses: %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn], validity: true },
-   { test: 'reject invalid', addresses: %w[user@example,com user_at_foo.org user.name@example. foo@bar_baz.com foo@bar+baz.com], validity: false }].each do |tests_hash|
+  [{ test: 'accept valid', addresses: %w(user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn), validity: true },
+   { test: 'reject invalid', addresses: %w(user@example,com user_at_foo.org user.name@example. foo@bar_baz.com foo@bar+baz.com), validity: false }].each do |tests_hash|
     test "email validation should #{tests_hash[:test]} addresses" do
       tests_hash[:addresses].each do |address|
         @user.email = address
